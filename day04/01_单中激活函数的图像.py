@@ -15,8 +15,8 @@ x = torch.linspace(-20,20,1000)
 y = torch.sigmoid(x)
 y = torch.tanh(x)
 
-plt.plot(x,y)
-plt.show()
+# plt.plot(x,y)
+# plt.show()
 
 #绘制激活函数的梯度图像
 #需要计算自变量x的梯度，因此在定义线性张量的时，候需要打开梯度
@@ -25,9 +25,10 @@ x = torch.linspace(-20,20,1000,requires_grad=True)
 
 #进行正向传播
 y = torch.sigmoid(x)
-
+print(y.shape)
 #反向传播 y先变为标量张量，否则无法开启梯度
 y.sum().backward()
+print(y.sum().shape)
 
-plt.plot(x.data,x.grad)
-plt.show()
+# plt.plot(x.data,x.grad)
+# plt.show()
